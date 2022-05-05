@@ -46,7 +46,7 @@ class Barbian extends Character {
 }
 class Monster extends Character {
 }
-class PristianoPenaldo extends Monster{
+class ChristianoPenaldo extends Monster{
     siuuu(target : Character) : void {
        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
     } 
