@@ -6,7 +6,7 @@ import {Thief} from './thief.ts';
 import {Barbarian} from './barbarian.ts';
 import {Paladin} from './paladin.ts';
 class GameManager {
-    roomNumber : number = 0;
+    roomNumber : number = 5;
     team : Character[] = [];
         chooseTeam() : void {
             while (this.team.length !==3) {    
@@ -14,21 +14,27 @@ class GameManager {
             switch (choice) {
                 case "1":
                     this.team.push(new Priestess("Priestess", 10, 10, 10, 100, 100, 100, 100));
+                    console.log("You have chosen Priestess");
                     break;
                 case "2":
                     this.team.push(new Warrior("Warrior", 10, 10, 10, 100, 100 ));
+                    console.log("You have chosen Warrior");
                     break;
                 case "3":
                     this.team.push(new Mage("Mage", 10, 10, 10, 100, 100, 100, 100));
+                    console.log("You have chosen Mage");
                     break;
                 case "4":
                     this.team.push(new Thief("thief", 10, 10, 10, 100, 100));
+                    console.log("You have chosen Thief");
                     break;
                 case "5":
                     this.team.push(new Barbarian("Barbian", 10, 10, 10, 100, 100));
+                    console.log("You have chosen Barbarian");
                     break;
                 case "6":
                     this.team.push(new Paladin("Paladin", 10, 10, 10, 100, 100));
+                    console.log("You have chosen Paladin");
                     break;
 
                 default:
