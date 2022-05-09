@@ -1,5 +1,5 @@
 import {Character} from './character.ts';
-class Mage extends Character {
+export class Mage extends Character {
     constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number , maxMana : number, currentMana : number) {
         super(name, physicalAttack, physicalDefense, speed, maxHealth, currentHealth, maxMana, currentMana);
         this.maxMana = 100;
