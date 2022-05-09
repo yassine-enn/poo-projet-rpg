@@ -1,14 +1,15 @@
 import {Character} from './character.ts';
+import {Inventory} from './inventory.ts';
 
 export class Menu {
-    chooseAttack(character : Character) : void {
+    chooseAttack(character : Character, target : Character) : void {
         let choice = prompt("Choose an attack: ");  
         switch (choice) {
             case "1":
-                character.attack();
+                character.attack(target);
                 break;
             case "2":
-                character.attack2();
+                character.attack2(target);
                 break;
         }
     }
@@ -57,11 +58,11 @@ export class Menu {
                 break;
             }
         }
-    chooseAction(character : Character, item : Inventory): void {
+    chooseAction(character : Character,target: Character, item : Inventory): void {
         let actionChoice = prompt("Choose an action: ");
         switch (actionChoice) {
-            case "1":
-                this.chooseAttack(character);
+            case "1": 
+                this.chooseAttack(character,target);
                 break;
             case "2":
                 this.useItem(character, item);
