@@ -7,7 +7,8 @@ export class Character {
     currentHealth : number = 0;
     maxMana : number = 0;
     currentMana : number = 0;
-    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number, maxMana : number, currentMana : number) {
+    magicAttack : number = 0;
+    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number, maxMana : number, currentMana : number,magicAttack : number) {
         this.name = name;
         this.physicalAttack = physicalAttack;
         this.physicalDefense = physicalDefense;
@@ -16,6 +17,7 @@ export class Character {
         this.currentHealth = currentHealth;
         this.maxMana = maxMana;
         this.currentMana = currentMana;
+        this.magicAttack = magicAttack;
     }
     attack(target : Character) : void {
         target.currentHealth -= (this.physicalAttack-target.physicalDefense);
