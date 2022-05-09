@@ -1,4 +1,5 @@
 export class Character {
+    isPlayable : boolean = true;
     name : string = "";
     physicalAttack : number = 0;
     physicalDefense : number = 0;
@@ -18,10 +19,10 @@ export class Character {
     attack(target : Character) : void {
         target.currentHealth -= (this.physicalAttack-target.physicalDefense);
     }
-    heal(target : Character) : void {
+    heal() : void {
         
     }
-    revive(target : Character) : void {
+    revive() : void {
     }
     attack2(target : Character) : void {
         console.log("attack2")
