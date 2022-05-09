@@ -6,4 +6,7 @@ class Paladin extends Character {
     deusVult(target : Character) : void {
          target.currentHealth -= (this.physicalAttack-target.physicalDefense)*0.4;
      }
+     attack2(target : Character) : void {
+        return this.deusVult(target); 
+     }
  }

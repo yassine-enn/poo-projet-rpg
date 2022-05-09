@@ -5,5 +5,8 @@ class CristianoPenaldo extends Character{
     }
     siuuu(target : Character) : void {
        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
-    } 
+    }
+    attack2(target : Character) : void {
+        return this.siuuu(target); 
+     }
 }

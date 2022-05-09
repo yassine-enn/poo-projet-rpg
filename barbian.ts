@@ -7,4 +7,7 @@ class Barbian extends Character {
          target.currentHealth -= (this.physicalAttack-target.physicalDefense)*1.3;
          this.currentHealth -= this.maxHealth*0.8;
      }
+     attack2(target : Character) : void {
+        return this.berzerk(target); 
+     }
  }

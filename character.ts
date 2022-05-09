@@ -26,7 +26,5 @@ export class Character {
     revive(target : Character) : void {
     }
     attack2(target : Character) : void {
-        console.log("attack2")
-        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
     }
 }
