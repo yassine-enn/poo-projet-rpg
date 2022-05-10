@@ -5,7 +5,7 @@ import {Mage} from './mage.ts';
 import {Thief} from './thief.ts';
 import {Barbarian} from './barbarian.ts';
 import {Paladin} from './paladin.ts';
-class GameManager {
+export class GameManager {
     roomNumber : number = 5;
     team : Character[] = [];
         chooseTeam() : void {
