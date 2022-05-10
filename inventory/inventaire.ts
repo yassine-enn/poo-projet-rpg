@@ -22,3 +22,5 @@ export class inventory {
 }
 
 let inventory1 = new inventory (1,2,3,4);
+
+/** */
