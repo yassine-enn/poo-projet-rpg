@@ -22,4 +22,3 @@ export class inventory {
 }
 
 let inventory1 = new inventory ()
-inventory1.prompt()
