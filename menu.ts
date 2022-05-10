@@ -17,16 +17,16 @@ export class Menu {
         let choice = prompt("Choose an item: ");
         switch (choice) {
             case "1":
-                if (item.numberOfPotions > 0) {
-                item.numberOfPotions --;
+                if (item.numPotions > 0) {
+                item.numPotions --;
                 character.heal();
                 } else {
                     console.log("You don't have any potions")
                 }
                 break;
             case "2":  
-                if (item.numberOfStarFragments > 0) {
-                item.numberOfStarFragments --;
+                if (item.numStarFragments > 0) {
+                item.numStarFragments --;
                 if (character.currentHealth !== 0){
                     character.heal();
                 }else{
@@ -37,8 +37,8 @@ export class Menu {
                 }
                 break;
             case "3":
-                if (item.numberOfHalfStars > 0) {
-                item.numberOfHalfStars --;
+                if (item.numHalfStars > 0) {
+                item.numHalfStars --;
                 if (character.currentHealth !== 0){ 
                     character.heal();
                 }else{
@@ -49,8 +49,8 @@ export class Menu {
             }
                 break;
             case "4":
-                if (item.numberOfEther > 0) {
-                item.numberOfEther --;
+                if (item.numEther > 0) {
+                item.numEther --;
                 character.currentMana += 30;
                 } else {
                     console.log("You don't have any ether")

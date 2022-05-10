@@ -1,4 +1,4 @@
-export class Character {
+export  class Character {
     isPlayable : boolean = true;
     name : string = "";
     physicalAttack : number = 0;

@@ -1,4 +1,5 @@
 import {Character} from './character.ts';
+import {GameManager} from './gameManager.ts';
 export class Fight {
     public teams : [Character[], Character[]] ;
     public revivable : Character[] |null;
@@ -20,17 +21,13 @@ export class Fight {
         }
 }
     public startTurn(): void {
-        
+    }
 }
+let character4 = new Character("character4", 10, 10, 25, 100, 100,0,0,0);
+let character5 = new Character("character5", 10, 10, 37, 100, 100,0,0,0);
+let character6 = new Character("character6", 10, 10, 100, 100, 100,0,0,0);
 
-let character1 = new Character("character1", 10, 10, 50, 100, 100);
-let character2 = new Character("character2", 10, 10, 65, 100, 100);
-let character3 = new Character("character3", 10, 10, 15, 100, 100);
-let character4 = new Character("character4", 10, 10, 25, 100, 100);
-let character5 = new Character("character5", 10, 10, 37, 100, 100);
-let character6 = new Character("character6", 10, 10, 100, 100, 100);
-
-let fight1 = new Fight([[character1, character2, character3], [character4, character5, character6]],null,[], 0);
+let fight1 = new Fight([GameManager.Team, [character4, character5, character6]],null,[], 0);
 fight1.order()
 console.log(fight1.speedOrder)
 
