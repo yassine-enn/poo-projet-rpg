@@ -1,60 +1,17 @@
-import { GameManager } from "./gameManager.ts";
 import { Character } from "./character.ts";
 
 class ChestRoom {
-    coffre : Chest
     chooseCharacter : Character
+    item1 : string | null = null;
+    item2 : string | null = null;
     constructor(team : Character[]) {
-        this.coffre = new Chest();
         this.chooseCharacter = team[Math.floor(Math.random() * team.length)]
     }
     openchest() {
-        if (this.coffre.trappedChest === true) {
-            console.log('HOOO no the chest is trapped')
-            console.log(`player ${this.chooseCharacter} took damage`)
-            this.chooseCharacter.currentHealth -= this.chooseCharacter.currentHealth * 0.1
-        }else {
-            console.log(`You found ${this.coffre.item1} and ${this.coffre.item2}`)
-            switch (this.coffre.item1) {
-                case "potion":
-                    numberOfPotions ++
-                    break;
-                case "starFragment":
-                    numberOfStarFragments++
-                    break;
-                case "halfStar":
-                    numberOfHalfStars ++
-                    break;
-                case "ether":
-                    numberOfEther ++
-                    break;
-            }
-            switch (this.coffre.item2) {
-                case "potion":
-                    numberOfPotions ++
-                    break;
-                case "starFragment":
-                    numberOfStarFragments++
-                    break;
-                case "halfStar":
-                    numberOfHalfStars ++
-                    break;
-                case "ether":
-                    numberOfEther ++
-                    break;
-            }
-        }
-
-    }
-}
-
-class Chest {
-    item1 : string | null = null ;
-    item2 : string | null = null ; 
-    trappedChest : boolean = false
-    constructor() {
         if (Math.floor(Math.random() * 2) === 0) {
-           this.trappedChest === true
+            console.log('HOOO no the chest is trapped')
+            console.log(`player ${this.chooseCharacter.name} took damage`)
+            this.chooseCharacter.currentHealth -= this.chooseCharacter.currentHealth * 0.1
         }else {
             switch (Math.floor(Math.random() * 4)) {
                 case 0:
@@ -83,11 +40,8 @@ class Chest {
                     this.item2 = "halfStar"
                     break;
             }
+            console.log(`You found ${this.item1} and ${this.item2}`)
+            return this.item1, this.item2
         }
-
     }
 }
-
-
-
-
