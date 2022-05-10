@@ -1,17 +1,18 @@
-import { GameManager } from "gameManager.ts";
-import { character } from "character.ts";
+import { GameManager } from "./gameManager.ts";
+import { Character } from "./character.ts";
 
 class ChestRoom {
     coffre : Chest
-    chooseCharacter : character = GameManager.teams[Math.floor(Math.random() * GameManager.teams.length)]
-    constructor() {
+    chooseCharacter : Character
+    constructor(team : Character[]) {
         this.coffre = new Chest();
+        this.chooseCharacter = team[Math.floor(Math.random() * team.length)]
     }
     openchest() {
         if (this.coffre.trappedChest === true) {
             console.log('HOOO no the chest is trapped')
             console.log(`player ${this.chooseCharacter} took damage`)
-            this.chooseCharacter.currentHP -= this.chooseCharacter.currentHP * 0.1
+            this.chooseCharacter.currentHealth -= this.chooseCharacter.currentHealth * 0.1
         }else {
             console.log(`You found ${this.coffre.item1} and ${this.coffre.item2}`)
             switch (this.coffre.item1) {
