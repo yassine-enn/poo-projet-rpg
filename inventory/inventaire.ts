@@ -4,7 +4,7 @@ export class inventory {
     HalfStars : number = 3;
     Ether : number = 4;
 
-    constructor(){
+    constructor(potion : number, StarFragment : number, HalfStar : number, Ether : number){
         this.prompt();
     }
 
@@ -21,4 +21,4 @@ export class inventory {
     
 }
 
-let inventory1 = new inventory ()
+let inventory1 = new inventory (1,2,3,4);
