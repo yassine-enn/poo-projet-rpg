@@ -8,13 +8,17 @@ export class Character {
     currentHealth : number = 0;
     maxMana : number = 0;
     currentMana : number = 0;
-    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number) {
+    magicAttack : number = 0;
+    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number, maxMana : number, currentMana : number,magicAttack : number) {
         this.name = name;
         this.physicalAttack = physicalAttack;
         this.physicalDefense = physicalDefense;
         this.speed = speed;
         this.maxHealth = maxHealth;
         this.currentHealth = currentHealth;
+        this.maxMana = maxMana;
+        this.currentMana = currentMana;
+        this.magicAttack = magicAttack;
     }
     attack(target : Character) : void {
         target.currentHealth -= (this.physicalAttack-target.physicalDefense);
@@ -25,7 +29,5 @@ export class Character {
     revive() : void {
     }
     attack2(target : Character) : void {
-        console.log("attack2")
-        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
     }
 }
