@@ -5,7 +5,7 @@ export class Fight {
     public revivable : Character[] |null;
     public speedOrder : Character[] = [];
     public turn : number;
-    constructor(teams : [Character[], Character[]], revivable : Character[] | null ,speedOrder : Character[] , turn : number) {
+    constructor(teams : [Character[], Character[]], revivable : Character[] | null ,speedOrder : Character[] , turn : number ) {
         this.teams = teams;
         this.revivable = revivable;
         this.speedOrder = speedOrder;
@@ -26,8 +26,9 @@ export class Fight {
 let character4 = new Character("character4", 10, 10, 25, 100, 100,0,0,0);
 let character5 = new Character("character5", 10, 10, 37, 100, 100,0,0,0);
 let character6 = new Character("character6", 10, 10, 100, 100, 100,0,0,0);
-
-let fight1 = new Fight([GameManager.Team, [character4, character5, character6]],null,[], 0);
+let  gameManager =  new GameManager();
+gameManager.chooseTeam();
+let fight1 = new Fight([gameManager.Team, [character4, character5, character6]],null,[], 0);
 fight1.order()
 console.log(fight1.speedOrder)
 

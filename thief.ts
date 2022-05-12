@@ -13,4 +13,4 @@ export class Thief extends Character {
 
 
 let thief1 = new Thief("thief", 10, 10, 50, 100, 100);
-thief1.attack2(thief1)
+//thief1.attack2(thief1)

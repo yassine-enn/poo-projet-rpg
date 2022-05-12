@@ -8,7 +8,6 @@ import {Paladin} from './paladin.ts';
 export class GameManager {
     roomNumber : number = 5;
     Team : Character[] = [];
-static Team: Character[];
         chooseTeam() : void {
             while (this.Team.length !==3) {    
             let choice = prompt("Choose your team \n1. Priestess\n2. Warrior\n3. Mage\n4. thief\n5. barbian\n6. paladin\n")
@@ -43,6 +42,3 @@ static Team: Character[];
         }
     }
 }
-let gameManager = new GameManager();
-gameManager.chooseTeam();
-console.log(gameManager.Team);
