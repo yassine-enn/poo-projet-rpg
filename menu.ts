@@ -1,12 +1,19 @@
 import {Character} from './character.ts';
 import {Inventory} from './inventory.ts';
+import {Fight} from './fight.ts';
 
 export class Menu {
+    targetsList : Character[] 
+    constructor(targetsList : Character[] ) {
+        this.targetsList = targetsList;
+    }
     chooseAttack(character : Character, target : Character) : void {
         let choice = prompt("Choose an attack: ");  
         switch (choice) {
             case "1":
                 character.attack(target);
+                console.log(target);
+                
                 break;
             case "2":
                 character.attack2(target);
@@ -58,12 +65,23 @@ export class Menu {
                 break;
             }
         }
-    chooseAction(character : Character,target: Character, item : Inventory): void {
+    chooseAction(character : Character, item : Inventory): void {
         let actionChoice = prompt("Choose an action: ");
+        let i : number = 0
+        let p =  prompt("Choose a target ") 
+        if (p !== null) {
+        i = parseInt(p) - 1;
+        }
         switch (actionChoice) {
             case "1": 
-                this.chooseAttack(character,target);
+            
+            if (this.targetsList[i].currentHealth > 0) {
+                this.chooseAttack(character,this.targetsList[i]);
                 break;
+            } else {
+                this.chooseAttack(character,this.targetsList[i+1]);
+                this.targetsList.splice(0,1);
+            }
             case "2":
                 this.useItem(character, item);
                 break;
@@ -72,3 +90,4 @@ export class Menu {
     }
     
 }
+
