@@ -14,7 +14,11 @@ export class Menu {
                 character.attack(target);
                 break;
             case "2":
-                character.attack2(target);
+                if (character.characterclass ==="mage" || character.characterclass ==="paladin") {
+                    character.attackAOE(this.targetsList[1]);
+                }else{
+                     character.attack2(target);
+                }
                 break;
             default:
                 console.log("Invalid choice");
@@ -68,7 +72,6 @@ export class Menu {
             }
         }
     chooseAction(character : Character, item : Inventory): void {
-        console.log("ew:",this.targetsList[0].length,this.targetsList[1].length);
         let actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
         let i : number = 0
         switch (actionChoice) {

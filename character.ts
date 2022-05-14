@@ -1,5 +1,6 @@
 export class Character {
     isPlayable : boolean = true;
+    alive : boolean = true;
     name : string = "";
     physicalAttack : number = 0;
     physicalDefense : number = 0;
@@ -9,7 +10,8 @@ export class Character {
     maxMana : number = 0;
     currentMana : number = 0;
     magicAttack : number = 0;
-    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number, maxMana : number, currentMana : number,magicAttack : number) {
+    characterclass : string = "";
+    constructor(name : string, physicalAttack : number, physicalDefense : number, speed : number, maxHealth : number, currentHealth : number, maxMana : number, currentMana : number,magicAttack : number, characterclass : string) {
         this.name = name;
         this.physicalAttack = physicalAttack;
         this.physicalDefense = physicalDefense;
@@ -19,9 +21,18 @@ export class Character {
         this.maxMana = maxMana;
         this.currentMana = currentMana;
         this.magicAttack = magicAttack;
+        this.characterclass = characterclass;
     }
     attack(target : Character) : void {
         target.currentHealth -= (this.physicalAttack-target.physicalDefense);
+        console.log("physcial attack", this.physicalAttack);
+        console.log("defense: " + target.physicalDefense);
+        console.log("damage: " + (this.physicalAttack-target.physicalDefense));
+        console.log(this.name + " attacks " + target.name + " with " + this.physicalAttack + " damage");
+        console.log(target.name + " has " + target.currentHealth + " health left");
+        if (target.currentHealth <= 0) {
+            target.die();
+        }
     }
     heal() : void {
         
@@ -30,4 +41,13 @@ export class Character {
     }
     attack2(target : Character) : void {
     }
+    attackAOE(targets : Character[]) : void {
+    }
+    die() : void {
+        if (this.currentHealth <= 0) {
+            this.alive = false;
+        }
+        console.log(this.name + " is dead");
+    }
+    
 }
