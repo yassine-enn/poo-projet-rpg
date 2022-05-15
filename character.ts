@@ -35,7 +35,13 @@ export class Character {
         }
     }
     heal() : void {
-        
+        console.log("previous health: " + this.currentHealth);
+        if(this.currentHealth + 50 > this.maxHealth) {
+            this.currentHealth = this.maxHealth;
+        }else {
+        this.currentHealth += 50;
+        }
+        console.log(this.name + " heals for 50 health, and now has " + this.currentHealth + " health");
     }
     revive() : void {
     }
