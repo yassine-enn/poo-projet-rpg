@@ -46,6 +46,8 @@ export class Character {
     revive() : void {
     }
     attack2(target : Character) : void {
+        console.log("attack2")
+        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
     }
     attackAOE(targets : Character[]) : void {
     }
