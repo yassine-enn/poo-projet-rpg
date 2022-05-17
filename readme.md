@@ -28,7 +28,7 @@ git clone https://git.ytrack.learn.ynov.com/YENNOUHI/poo-projet-rpg.git
 Make sure you've already installed deno before running the game following the installation guide in this link [Install Deno](https://deno.land/manual/getting_started/installation)  
 Then you can run the game by typing this command in your terminal  
 ```
-deno run fight.ts
+deno run gameManager.ts
 ```
 ### Course of the game
 You will be asked to pick your team, once you've done that, at the begining each turn you'll be prompted to choose an action (use item or choose attack). The game ends if all of your characters die (bad ending) or once you beat the boss and his goons (good ending).
