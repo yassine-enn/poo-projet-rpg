@@ -5,7 +5,11 @@ export class CristianoPenaldo extends Character{
         super(name, physicalAttack, physicalDefense, speed, maxHealth, currentHealth,0,0,0,"penaldo");
     }
     siuuu(target : Character) : void {
-       target.currentHealth -= (this.physicalAttack-target.physicalDefense);
+        for (let i = 0; i < targets.length; i++) {
+            targets[i].currentHealth -= (this.physicalAttack-targets[i].physicalDefense)*0.6;
+            console.log("SIUUUUUUUUU");
+            console.log("cristiano" + " uses siuuuu on " + targets[i].name + " for " +(this.physicalAttack-targets[i].physicalDefense)*0.6  + " damage");
+            console.log(targets[i].name + " has " + targets[i].currentHealth + " health left");     }
     }
     attack2(target : Character) : void {
         return this.siuuu(target); 

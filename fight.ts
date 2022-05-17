@@ -107,6 +107,9 @@ export class Fight {
                             }
                             else{
                             this.speedOrder[i].attack(this.speedOrder[0])
+                            if (this.speedOrder[0].currentHealth < lowestHealth.currentHealth) {
+                                lowestHealth = this.speedOrder[0];
+                            }
                             }
                         }
                 }
