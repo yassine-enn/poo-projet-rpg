@@ -15,6 +15,7 @@ export class Fight {
     public fightStatus : string | null;
     public allies : Character[] = [];
     public enemies : Character[] = [];
+    private initialisation : boolean = true;
     constructor(teams : [Character[], Character[]], revivable : Character[]  ,speedOrder : Character[] , turn : number, fightStatus : string | null, allies : Character[], enemies : Character[]) {
         this.teams = teams;
         this.revivable = revivable;
@@ -83,6 +84,11 @@ export class Fight {
                 break;
             }else{
                 if (this.speedOrder[i].isPlayable && this.speedOrder[i].currentHealth > 0) {
+                    if(this.initialisation) {
+                        this.initialisation = false
+                    }else{
+                        inventory.displayInventory()
+                    }
                     console.log(this.speedOrder[i].name+"\'s turn");
                     this.fightStatusCheck();
                     if(this.fightStatus === "over") {
@@ -96,10 +102,10 @@ export class Fight {
                     this.fightStatusCheck();
                     if(this.fightStatus === "over") {
                         break;
-                        }else{
+                    }else{
 
-                            this.speedOrder[i].attack(this.speedOrder[0])
-                        }
+                        this.speedOrder[i].attack(this.speedOrder[0])
+                    }
                 }
             }
             
