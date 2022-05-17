@@ -45,4 +45,8 @@ export class GameManager {
 }
 let gameManager = new GameManager();
 gameManager.chooseTeam();
-console.log(gameManager.team);
+let teamChosen = ""
+for (let i = 0; i < gameManager.team.length; i++) {
+ teamChosen += gameManager.team[i].name + " ";
+}
+console.log("Your team is:", teamChosen);
