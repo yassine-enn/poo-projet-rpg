@@ -74,10 +74,16 @@ export class Menu {
         }
     chooseAction(character : Character, item : Inventory): void {
         let actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
+        while (actionChoice !== "1" && actionChoice !== "2") {
+            actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
+        }
         let i : number = 0
         switch (actionChoice) {
             case "1": 
             let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
+            while (p !== "1" && p !== "2" && p !== "3") {
+                p = prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
+            }
             if (p !== null) {
                i = parseInt(p) - 1;
             }
@@ -85,6 +91,9 @@ export class Menu {
                 break;
             case "2":
                 let q =  prompt("Choose a target \n1. " + this.targetsList[0][i].name + "\n2. " + this.targetsList[0][i+1].name + "\n3. " + this.targetsList[0][i+2].name + "\n");
+                while (q !== "1" && q !== "2" && q !== "3") {
+                    q = prompt("Choose a target \n1. " + this.targetsList[0][i].name + "\n2. " + this.targetsList[0][i+1].name + "\n3. " + this.targetsList[0][i+2].name + "\n");
+                }
                 if ( q !== null) {
                    i = parseInt(q) - 1;
                 }
@@ -92,7 +101,7 @@ export class Menu {
                 break;
             default:
                 console.log("Invalid choice");
-        }
+    }
 
     }
     
