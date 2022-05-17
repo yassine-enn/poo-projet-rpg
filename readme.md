@@ -35,4 +35,10 @@ You will be asked to pick your team, once you've done that, at the begining each
 ## Class diagram
 <img src="https://zupimages.net/up/22/20/m408.png"
      alt="Class diagram"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 10px;" />  
+
+## Contributors 
+* Adrien RAYNAUD [Gitea](https://git.ytrack.learn.ynov.com/ARAYNAUD)
+* Mostapha TOURABI [Gitea](https://git.ytrack.learn.ynov.com/MTOURABI1)
+* Nathan BOURRY [Gitea](https://git.ytrack.learn.ynov.com/NBOURRY)
+* Yassine ENNOUHI [Gitea](https://git.ytrack.learn.ynov.com/YENNOUHI)  
