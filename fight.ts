@@ -51,6 +51,8 @@ export class Fight {
         }
 
         while (this.fightStatus === null) {
+            console.log(1);
+            
             this.fightStatusCheck();
             if (this.fightStatus === "over") {
                 break;
@@ -68,13 +70,14 @@ export class Fight {
                 }
             }
             this.fightStatusCheck();
-            // console.log(this.fightStatus);
+            //console.log(this.fightStatus);
             if(this.fightStatus === "over") {
                 break;
             }else{
                 if (this.speedOrder[i].isPlayable && this.speedOrder[i].currentHealth > 0) {
                     if (this.speedOrder[i].currentHealth < lowestHealth.currentHealth) {
                         lowestHealth = this.speedOrder[i];
+                    }
                     if(this.initialisation) {
                         this.initialisation = false
                     }else{
@@ -105,7 +108,6 @@ export class Fight {
                             }
                             }
                         }
-                }
             }
             
         }
@@ -138,8 +140,6 @@ export class Fight {
 
 
 
-// let priestess1 = new Priestess("priestess", 10, 50, 50, 20, 100, 100, 100);
-// let warrior1 = new Warrior("warrior", 100, 80, 55, 100, 100);
 
 let monster1 = new Monster("monster1", 60, 30, 30, 100, 100);
 let monster2 = new Monster("monster2", 60, 30, 31, 100, 100);
@@ -161,11 +161,12 @@ for (let i = 0; i < teamChosen.length; i++) {
 console.log("Your team is:", team);
 let fight1 = new Fight([teamChosen, [monster1, monster2, monster3]],[],[], 0, null, teamChosen, [monster1, monster2, monster3]);
 
-
 let menu = new Menu(fight1.teams);
 let inventory = new Inventory(2,3,4,5);
 inventory.displayInventory();
+
 fight1.startTurn( menu, inventory);
+
 for (let i = 0; i < fight1.allies.length; i++) {
     console.log(fight1.allies[i].name);
 }
