@@ -122,24 +122,6 @@ export class Fight {
             this.fightStatus = "over";
     }
 }
-    public startTurn(character : Character, menu:Menu, inventory : Inventory): void {
-        this.order();
-        while (this.fightStatus === null) {
-            menu.chooseAction(character,inventory);
-        for (let i = 0; i < this.speedOrder.length; i++) {
-            if (character.isPlayable){
-                
-            }
-        }
-    }
-    }
-    public fightStatusCheck() : void {
-        if (this.teams[0].length === 0) {
-            this.fightStatus = "victory";
-        } else if (this.teams[1].length === 0) {
-            this.fightStatus = "defeat";
-        }
-    }
 }
 
 
