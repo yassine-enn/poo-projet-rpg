@@ -4,6 +4,7 @@ import {Fight} from './fight.ts';
 
 export class Menu {
     targetsList : Character[][]
+    choose : boolean = false
     constructor(targetsList : Character[][] ) {
         this.targetsList = targetsList;
     }
@@ -75,12 +76,22 @@ export class Menu {
     chooseAction(character : Character, item : Inventory): void {
         let actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
         let i : number = 0
+        this.choose = false
         switch (actionChoice) {
             case "1": 
-            let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
-            if (p !== null) {
-               i = parseInt(p) - 1;
-            }
+                while(!this.choose){
+                    let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
+                    if (p === "1" || p === "2" || p === "3") {
+                        i = parseInt(p) - 1;
+                        if (this.targetsList[1][i].alive) {
+                            this.choose = true
+                        }else{
+                            console.log("The monster is dead")
+                        }
+                    }else{
+                        console.log("Invalid choice")
+                    }
+                }
                 this.chooseAttack(character,this.targetsList[1][i]);
                 break;
             case "2":
