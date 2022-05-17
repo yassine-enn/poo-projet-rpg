@@ -24,7 +24,7 @@ export  class Character {
         this.characterclass = characterclass;
     }
     attack(target : Character) : void {
-        target.currentHealth -= (this.physicalAttack-target.physicalDefense);
+        target.currentHealth -= Math.min(this.physicalAttack-target.physicalDefense,0);
         console.log("physcial attack", this.physicalAttack);
         console.log("defense: " + target.physicalDefense);
         console.log("damage: " + (this.physicalAttack-target.physicalDefense));
