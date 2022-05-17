@@ -13,3 +13,10 @@ The final room (5) is the boss room in which the player will have to fight the b
 * Warrior : only has a basic attack. 
 * Barbarian : has a basic attack and the ability to deal considerable damage to a single target in exchange for a percentage of his max hp.
 * Paladin : has a basic attack and an AoE physical attack. 
+#### Boss
+* Penaldo : has a basic attack and the ability to deal AoE damage as he screams "SIUUU"
+### Items
+* Potion : restores 50% of target's max hp.
+* Star Fragment : revives a target with 20% of his max hp, heals him by 50% of his max hp if he is still alive
+* Half Star : revives a target with 50% of his max hp or restores all of his hp if he is still alive
+* Ether : Restores 30% of max mana (mana users are the mage and the priestess)
