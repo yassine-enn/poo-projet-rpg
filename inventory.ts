@@ -10,6 +10,11 @@ export class Inventory{
         this.numberOfEther = numberOfEther;
 }
 displayInventory() : void {
-    console.log("Potions: " + this.numberOfPotions + "\nStar Fragments: " + this.numberOfStarFragments + "\nHalf Stars: " + this.numberOfHalfStars + "\nEther: " + this.numberOfEther);
+    for(var i = 0; i < 50; i++) {
+        console.log("\n")
+    }
+    console.log("==============================\n          INVENTAIRE\n==============================")
+    console.log("          Potions: " + this.numberOfPotions + "\n          Star Fragments: " + this.numberOfStarFragments + "\n          Half Stars: " + this.numberOfHalfStars + "\n          Ether: " + this.numberOfEther);
+    console.log("==============================")
 }   
 }

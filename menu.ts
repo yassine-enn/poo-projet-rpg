@@ -25,6 +25,7 @@ export class Menu {
         }
     }
     useItem(character : Character, item : Inventory) : void {
+        item.displayInventory()
         let choice = prompt("Choose an item:  \n1. Potion \n2. Star Fragment \n3. Half Star \n4. Ether \n ");
         switch (choice) {
             case "1":

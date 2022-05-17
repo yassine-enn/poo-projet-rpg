@@ -32,13 +32,18 @@ export class Fight {
             this.speedOrder.sort(function(a,b){return a.speed-b.speed});
             this.speedOrder.reverse();
         }
-        console.log(this.speedOrder.length)
 }
 // character : Character,
     public startTurn(menu:Menu, inventory : Inventory): void {
         this.order();
+        console.log("<<<<<<<<<< Personnages >>>>>>>>>>")
         for (let i = 0; i < this.speedOrder.length; i++) {
-            console.log(this.speedOrder[i].name);
+            if (i === 0){
+                console.log("          HEROS :")
+            }else if (i === 3) {
+                console.log("          BAD MEN :")
+            }
+            console.log(`     ${this.speedOrder[i].name}`);
         }
         
         while (this.fightStatus === null) {
