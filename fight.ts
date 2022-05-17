@@ -89,6 +89,7 @@ export class Fight {
                     if(this.fightStatus === "over") {
                         break;
                         }else{
+
                             this.speedOrder[i].attack(this.speedOrder[0])
                         }
                 }
