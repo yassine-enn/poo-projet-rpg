@@ -30,7 +30,7 @@ export class GameManager {
                     console.log("You have chosen Thief");
                     break;
                 case "5":
-                    this.team.push(new Barbarian("Barbian", 100, 15, 25, 110, 110));
+                    this.team.push(new Barbarian("Barbarian", 100, 15, 25, 110, 110));
                     console.log("You have chosen Barbarian");
                     break;
                 case "6":
@@ -43,10 +43,10 @@ export class GameManager {
         }
     }
 }
-let gameManager = new GameManager();
-gameManager.chooseTeam();
-let teamChosen = ""
-for (let i = 0; i < gameManager.team.length; i++) {
- teamChosen += gameManager.team[i].name + " ";
-}
-console.log("Your team is:", teamChosen);
+// let gameManager = new GameManager();
+// gameManager.chooseTeam();
+// let teamChosen = ""
+// for (let i = 0; i < gameManager.team.length; i++) {
+//  teamChosen += gameManager.team[i].name + " ";
+// }
+// console.log("Your team is:", teamChosen);

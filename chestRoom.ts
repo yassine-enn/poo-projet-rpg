@@ -1,6 +1,6 @@
 import { Character } from "./character.ts";
 
-class ChestRoom {
+export class ChestRoom {
     chooseCharacter : Character
     item1 : string | null = null;
     item2 : string | null = null;

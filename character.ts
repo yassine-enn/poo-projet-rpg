@@ -24,12 +24,12 @@ export class Character {
         this.characterclass = characterclass;
     }
     attack(target : Character) : void {
-        target.currentHealth -= Math.min(this.physicalAttack-target.physicalDefense,0);
+        target.currentHealth -= this.physicalAttack-target.physicalDefense; 
         console.log("physcial attack", this.physicalAttack);
         console.log("defense: " + target.physicalDefense);
         console.log("damage: " + (this.physicalAttack-target.physicalDefense));
         console.log(this.name + " attacks " + target.name + " with " + this.physicalAttack + " damage");
-        console.log(target.name + " has " + target.currentHealth + " health left");
+        console.log(target.name + " has " + Math.max(target.currentHealth,0) + " health left");
         if (target.currentHealth <= 0) {
             target.die();
         }
