@@ -44,6 +44,7 @@ export class Menu {
                     character.heal();
                 }else{
                     character.revive();
+                    character.currentHealth += 20;
                 }
                 } else {
                     console.log("You don't have any star fragments")
@@ -56,6 +57,7 @@ export class Menu {
                     character.heal();
                 }else{
                 character.revive();
+                character.currentHealth += 20;
                 } 
             }else {
                 console.log("You don't have any half stars")

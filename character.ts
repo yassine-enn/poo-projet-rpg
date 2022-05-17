@@ -24,7 +24,11 @@ export class Character {
         this.characterclass = characterclass;
     }
     attack(target : Character) : void {
+        if (target.physicalDefense <= this.physicalAttack) {
         target.currentHealth -= this.physicalAttack-target.physicalDefense; 
+        }else{
+            target.currentHealth = target.currentHealth;
+        }
         console.log("physcial attack", this.physicalAttack);
         console.log("defense: " + target.physicalDefense);
         console.log("damage: " + (this.physicalAttack-target.physicalDefense));
@@ -44,6 +48,7 @@ export class Character {
         console.log(this.name + " heals for 50 health, and now has " + this.currentHealth + " health");
     }
     revive() : void {
+        this.alive = true;
     }
     attack2(target : Character) : void {
         console.log("attack2")
