@@ -12,8 +12,6 @@ export class Menu {
         switch (choice) {
             case "1":
                 character.attack(target);
-                console.log(target);
-                
                 break;
             case "2":
                 if (character.characterclass ==="mage" || character.characterclass ==="paladin") {
@@ -30,16 +28,16 @@ export class Menu {
         let choice = prompt("Choose an item:  \n1. Potion \n2. Star Fragment \n3. Half Star \n4. Ether \n ");
         switch (choice) {
             case "1":
-                if (item.numPotions > 0) {
-                item.numPotions --;
+                if (item.numberOfPotions > 0) {
+                item.numberOfPotions --;
                 character.heal();
                 } else {
                     console.log("You don't have any potions")
                 }
                 break;
             case "2":  
-                if (item.numStarFragments > 0) {
-                item.numStarFragments --;
+                if (item.numberOfStarFragments > 0) {
+                item.numberOfStarFragments --;
                 if (character.currentHealth !== 0){
                     character.heal();
                 }else{
@@ -50,8 +48,8 @@ export class Menu {
                 }
                 break;
             case "3":
-                if (item.numHalfStars > 0) {
-                item.numHalfStars --;
+                if (item.numberOfHalfStars > 0) {
+                item.numberOfHalfStars --;
                 if (character.currentHealth !== 0){ 
                     character.heal();
                 }else{
@@ -62,8 +60,8 @@ export class Menu {
             }
                 break;
             case "4":
-                if (item.numEther > 0) {
-                item.numEther --;
+                if (item.numberOfEther > 0) {
+                item.numberOfEther --;
                 character.currentMana += 30;
                 } else {
                     console.log("You don't have any ether")
@@ -84,10 +82,6 @@ export class Menu {
             }
                 this.chooseAttack(character,this.targetsList[1][i]);
                 break;
-            } else {
-                this.chooseAttack(character,this.targetsList[i+1]);
-                this.targetsList.splice(0,1);
-            }
             case "2":
                 let q =  prompt("Choose a target \n1. " + this.targetsList[0][i].name + "\n2. " + this.targetsList[0][i+1].name + "\n3. " + this.targetsList[0][i+2].name + "\n");
                 if ( q !== null) {
