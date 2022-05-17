@@ -37,6 +37,7 @@ export class Fight {
 // character : Character,
     public startTurn(menu:Menu, inventory : Inventory): void {
         this.order();
+        let lowestHealth : Character  = this.speedOrder[0];
         for (let i = 0; i < this.speedOrder.length; i++) {
             console.log(this.speedOrder[i].name);
         }
@@ -78,6 +79,9 @@ export class Fight {
                 break;
             }else{
                 if (this.speedOrder[i].isPlayable && this.speedOrder[i].currentHealth > 0) {
+                    if (this.speedOrder[i].currentHealth < lowestHealth.currentHealth) {
+                        lowestHealth = this.speedOrder[i];
+                    }
                     console.log(this.speedOrder[i].name+"\'s turn");
                     this.fightStatusCheck();
                     if(this.fightStatus === "over") {
@@ -92,8 +96,13 @@ export class Fight {
                     if(this.fightStatus === "over") {
                         break;
                         }else{
-
+                             let rand : number = Math.floor(Math.random() * 10)
+                            if (rand < 2) {
+                                this.speedOrder[i].attack(lowestHealth)
+                            }
+                            else{
                             this.speedOrder[i].attack(this.speedOrder[0])
+                            }
                         }
                 }
             }
@@ -130,7 +139,7 @@ export class Fight {
 // let warrior1 = new Warrior("warrior", 100, 80, 55, 100, 100);
 let paladin1 = new Paladin("paladin", 100, 80, 60, 100, 80);
 let warrior1 = new Paladin("paladin2", 100, 80, 61, 100, 80);
-let priestess1 = new Paladin("paladin3", 100, 80, 29, 100, 80);
+let priestess1 = new Paladin("paladin3", 10, 8, 29, 10, 70);
 let monster1 = new Monster("monster", 95, 30, 30, 100, 100);
 let monster2 = new Monster("monster", 95, 30, 31, 100, 100);
 let monster3 = new Monster("monster", 95, 30, 32, 100, 100);
