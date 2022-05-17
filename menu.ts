@@ -3,8 +3,8 @@ import {Inventory} from './inventory.ts';
 import {Fight} from './fight.ts';
 
 export class Menu {
-    targetsList : Character[] 
-    constructor(targetsList : Character[] ) {
+    targetsList : Character[][]
+    constructor(targetsList : Character[][] ) {
         this.targetsList = targetsList;
     }
     chooseAttack(character : Character, target : Character) : void {
@@ -16,12 +16,18 @@ export class Menu {
                 
                 break;
             case "2":
-                character.attack2(target);
+                if (character.characterclass ==="mage" || character.characterclass ==="paladin") {
+                    character.attackAOE(this.targetsList[1]);
+                }else{
+                     character.attack2(target);
+                }
                 break;
+            default:
+                console.log("Invalid choice");
         }
     }
     useItem(character : Character, item : Inventory) : void {
-        let choice = prompt("Choose an item: ");
+        let choice = prompt("Choose an item:  \n1. Potion \n2. Star Fragment \n3. Half Star \n4. Ether \n ");
         switch (choice) {
             case "1":
                 if (item.numPotions > 0) {
@@ -63,31 +69,36 @@ export class Menu {
                     console.log("You don't have any ether")
                 }
                 break;
+            default:
+                console.log("Invalid choice");
             }
         }
     chooseAction(character : Character, item : Inventory): void {
-        let actionChoice = prompt("Choose an action: ");
+        let actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
         let i : number = 0
-        let p =  prompt("Choose a target ") 
-        if (p !== null) {
-        i = parseInt(p) - 1;
-        }
         switch (actionChoice) {
             case "1": 
-            
-            if (this.targetsList[i].currentHealth > 0) {
-                this.chooseAttack(character,this.targetsList[i]);
+            let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
+            if (p !== null) {
+               i = parseInt(p) - 1;
+            }
+                this.chooseAttack(character,this.targetsList[1][i]);
                 break;
             } else {
                 this.chooseAttack(character,this.targetsList[i+1]);
                 this.targetsList.splice(0,1);
             }
             case "2":
-                this.useItem(character, item);
+                let q =  prompt("Choose a target \n1. " + this.targetsList[0][i].name + "\n2. " + this.targetsList[0][i+1].name + "\n3. " + this.targetsList[0][i+2].name + "\n");
+                if ( q !== null) {
+                   i = parseInt(q) - 1;
+                }
+                this.useItem(this.targetsList[0][i], item);
                 break;
+            default:
+                console.log("Invalid choice");
         }
 
     }
     
 }
-
