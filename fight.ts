@@ -57,6 +57,9 @@ export class Fight {
             //     }
             // }
             this.fightStatusCheck();
+            if (this.fightStatus === "over") {
+                break;
+            }
         for (let i = 0; i < this.speedOrder.length; i++) {
               for (let i = 0; i < this.enemies.length; i++) {
                 if (this.enemies[i].currentHealth <= 0) {
