@@ -44,6 +44,7 @@ export class Character {
         console.log(this.name + " heals for 50 health, and now has " + this.currentHealth + " health");
     }
     revive() : void {
+        this.alive = true;
     }
     attack2(target : Character) : void {
     }

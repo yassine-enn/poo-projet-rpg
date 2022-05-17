@@ -42,6 +42,7 @@ export class Menu {
                     character.heal();
                 }else{
                     character.revive();
+                    character.currentHealth += 20;
                 }
                 } else {
                     console.log("You don't have any star fragments")
@@ -54,6 +55,7 @@ export class Menu {
                     character.heal();
                 }else{
                 character.revive();
+                character.currentHealth += 20;
                 } 
             }else {
                 console.log("You don't have any half stars")
@@ -76,7 +78,7 @@ export class Menu {
         let i : number = 0
         switch (actionChoice) {
             case "1": 
-            let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. " + this.targetsList[1][i+2].name + "\n");
+            let p =  prompt("Choose a target \n1. " + this.targetsList[1][i].name + "\n2. " + this.targetsList[1][i+1].name + "\n3. "+ this.targetsList[1][i+2].name + "\n");
             if (p !== null) {
                i = parseInt(p) - 1;
             }
