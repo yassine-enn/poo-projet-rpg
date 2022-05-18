@@ -18,7 +18,7 @@ export class GameManager {
     inventory = new Inventory(2,3,4,5);
         chooseTeam() : void {
             while (this.team.length !==3) {    
-            let choice = prompt("Choose your team \n1. Priestess\n2. Warrior\n3. Mage\n4. thief\n5. barbian\n6. paladin\n")
+            let choice = prompt("Choose your team \n1. Priestess\n2. Warrior\n3. Mage\n4. Thief\n5. Barbarian\n6. Paladin\n")
             switch (choice) {
                 case "1":
                     this.team.push(new Priestess("Priestess", 40, 10, 10, 100, 100, 100, 100));
