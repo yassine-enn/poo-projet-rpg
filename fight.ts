@@ -91,26 +91,13 @@ export class Fight {
               break;
             } else {
                 menu.chooseAction(this.speedOrder[i], inventory);
-                // for (let i=0; i<this.speedOrder.length; i++){
-                //     this.speedOrder[i].die();
-                //     this.fightStatusCheck();
-                //     if (this.fightStatus === "over") {
-                //       break;
-                //     }
-                // }
                 this.deathCheck();
+                this.fightStatusCheck();
             }
           } else if (
             !this.speedOrder[i].isPlayable &&
             this.speedOrder[i].currentHealth > 0
           ) {
-            // for (let i=0; i<this.speedOrder.length; i++){
-            //     this.speedOrder[i].die();
-            //     this.fightStatusCheck();
-            //     if (this.fightStatus === "over") {
-            //       break;
-            //     }
-            // }
             this.deathCheck();
             console.log(this.speedOrder[i].name + " is playing");
             this.speedOrder[i].die();
@@ -131,15 +118,8 @@ export class Fight {
               } else {
                 if (this.speedOrder[i].name === "cristiano" && rand < 5) {
                     this.speedOrder[i].attackAOE(this.allies);
-                    // for (let i=0; i<this.speedOrder.length; i++){
-                    //     this.speedOrder[i].die();
-                    //     this.fightStatusCheck();
-                    //     if (this.fightStatus === "over") {
-                    //       break;
-                    //     }
-                    // }
                     this.deathCheck();
-                } else {
+                  } else {
                     for (let i=0; i<this.speedOrder.length; i++){
                       this.speedOrder[i].die();
                       this.fightStatusCheck();
@@ -193,3 +173,11 @@ export class Fight {
 }
 }
 }
+
+                  // for (let i=0; i<this.speedOrder.length; i++){
+                  //     this.speedOrder[i].die();
+                  //     this.fightStatusCheck();
+                  //     if (this.fightStatus === "over") {
+                  //       break;
+                  //     }
+                  // }
