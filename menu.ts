@@ -27,7 +27,7 @@ export class Menu {
             case "2":
                 if (character.name ==="Mage" || character.name ==="Paladin" && character.currentMana >= 10) {
                     character.attackAOE(this.targetsList[1]);
-                    console.log(character.name + " has " + character.currentMana + " mana left");
+                    prompt(character.name + " has " + character.currentMana + " mana left");
                 }else if (character.name ==="Mage" || character.name ==="Paladin" && character.currentMana < 10){
                     console.log("You don't have enough mana")
                     console.log("you use a normal attack");
@@ -46,15 +46,15 @@ export class Menu {
                         i = parseInt(p) - 1;
                         if (this.targetsList[0][i].alive && this.targetsList[0][i].currentMana>=10) {
                             character.attack2(this.targetsList[0][i])
-                            console.log(this.targetsList[0][i].name + " has " + this.targetsList[0][i].currentMana + " mana left");
+                            prompt(this.targetsList[0][i].name + " has " + this.targetsList[0][i].currentMana + " mana left");
                             if (this.targetsList[0][i].currentHealth + character.currentHealth*0.25 > this.targetsList[0][i].maxHealth) {
                                 this.targetsList[0][i].currentHealth = this.targetsList[0][i].maxHealth;
                             }
-                            console.log( character.name + " uses heal on " + this.targetsList[0][i].name + " for " + character.currentHealth*0.25 + " health now has " + this.targetsList[0][i].currentHealth + " health left");
+                           prompt( character.name + " uses heal on " + this.targetsList[0][i].name + " for " + character.currentHealth*0.25 + " health now has " + this.targetsList[0][i].currentHealth + " health left");
                             this.choose = true;
                         }else if (this.targetsList[0][i].alive && this.targetsList[0][i].currentMana < 10) {
-                            console.log("You don't have enough mana")
-                            console.log("you use a normal attack");
+                            prompt("You don't have enough mana")
+                            prompt("you use a normal attack");
                             character.attack(target);
                             this.choose = true;
                         }else{
@@ -72,6 +72,9 @@ export class Menu {
     useItem(character : Character, item : Inventory) : void {
         item.displayInventory()
         let choice = prompt("Choose an item:  \n1. Potion \n2. Star Fragment \n3. Half Star \n4. Ether \n ");
+        while (choice !== "1" && choice !== "2" && choice !== "3" && choice !== "4") {
+            choice = prompt("Choose an item:  \n1. Potion \n2. Star Fragment \n3. Half Star \n4. Ether \n ");
+        }
         switch (choice) {
             case "1":
                 if (item.numberOfPotions > 0) {
@@ -97,11 +100,13 @@ export class Menu {
             case "3":
                 if (item.numberOfHalfStars > 0) {
                 item.numberOfHalfStars --;
-                if (character.currentHealth !== 0){ 
-                    character.heal();
+                if (character.currentHealth > 0){ 
+                    character.currentHealth = character.maxHealth;
+                    prompt(character.name + " has " + character.currentHealth + " health now");
                 }else{
+                character.currentHealth = character.maxHealth;
+                prompt(character.name + " has been revived and has " + character.currentHealth + " health now");
                 character.revive();
-                character.currentHealth += 20;
                 } 
             }else {
                 console.log("You don't have any half stars")

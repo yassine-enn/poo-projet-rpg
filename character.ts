@@ -29,8 +29,8 @@ export class Character {
         }else{
             target.currentHealth = target.currentHealth;
         }
-        console.log(this.name + " attacks " + target.name + " with " + (this.physicalAttack-target.physicalDefense) + " damage");
-        console.log(target.name + " has " + Math.max(target.currentHealth,0) + " health left");
+        prompt(this.name + " attacks " + target.name + " with " + (this.physicalAttack-target.physicalDefense) + " damage");
+        prompt(target.name + " has " + Math.max(target.currentHealth,0) + " health left");
         if (target.currentHealth <= 0) {
             target.die();
         }
@@ -59,8 +59,8 @@ export class Character {
     die() : void {
         if (this.currentHealth <= 0) {
             this.alive = false;
+            // console.log(this.name + " is dead");
         }
-        console.log(this.name + " is dead");
     }
     
 }
