@@ -8,6 +8,7 @@ export class Mage extends Character {
         targets[i].currentHealth -= this.magicAttack;
         console.log(this.name + " uses rasengan on " + targets[i].name + " for " + this.magicAttack + " damage");
         console.log(targets[i].name + " has " + Math.max(targets[i].currentHealth,0) + " health left");
+        this.currentMana -=10;
         }
     }
     attackAOE(targets : Character[]) : void {

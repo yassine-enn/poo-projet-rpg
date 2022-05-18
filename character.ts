@@ -29,10 +29,7 @@ export class Character {
         }else{
             target.currentHealth = target.currentHealth;
         }
-        console.log("physcial attack", this.physicalAttack);
-        console.log("defense: " + target.physicalDefense);
-        console.log("damage: " + (this.physicalAttack-target.physicalDefense));
-        console.log(this.name + " attacks " + target.name + " with " + this.physicalAttack + " damage");
+        console.log(this.name + " attacks " + target.name + " with " + (this.physicalAttack-target.physicalDefense) + " damage");
         console.log(target.name + " has " + Math.max(target.currentHealth,0) + " health left");
         if (target.currentHealth <= 0) {
             target.die();
@@ -48,6 +45,9 @@ export class Character {
         console.log(this.name + " heals for 50 health, and now has " + this.currentHealth + " health");
     }
     revive() : void {
+        this.alive = true;
+    }
+    partrevive() : void {
         this.alive = true;
     }
     attack2(target : Character) : void {

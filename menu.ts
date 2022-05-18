@@ -1,28 +1,72 @@
 import {Character} from './character.ts';
 import {Inventory} from './inventory.ts';
-import {Fight} from './fight.ts';
 
 export class Menu {
     targetsList : Character[][]
     choose : boolean = false
+     choice : string | null = "";
     constructor(targetsList : Character[][] ) {
         this.targetsList = targetsList;
     }
     chooseAttack(character : Character, target : Character) : void {
-        let choice = prompt("Choose an attack: ");  
-        switch (choice) {
+        if ( character.name === "Priestess"){
+            this.choice = prompt("Choose an attack: \n1. Attack \n2. Attack AOE \n3. Heal\n");
+            while (this.choice !== "1"  && this.choice !== "3") {
+                this.choice = prompt("Choose an attack: \n1. Attack \n3. Heal\n");
+            }
+        }else {
+             this.choice = prompt("Choose an attack: \n1. Attack \n2. Attack AOE \n");
+            while (this.choice !== "1" && this.choice !== "2") {
+                this.choice = prompt("Choose an attack: \n1. Attack \n2. Attack AOE \n");
+            }
+        }
+        switch (this.choice) {
             case "1":
                 character.attack(target);
                 break;
             case "2":
-                if (character.characterclass ==="mage" || character.characterclass ==="paladin") {
+                if (character.name ==="Mage" || character.name ==="Paladin" && character.currentMana >= 10) {
                     character.attackAOE(this.targetsList[1]);
-                }else{
+                    console.log(character.name + " has " + character.currentMana + " mana left");
+                }else if (character.name ==="Mage" || character.name ==="Paladin" && character.currentMana < 10){
+                    console.log("You don't have enough mana")
+                    console.log("you use a normal attack");
+                    character.attack(target);
+                }else {
                      character.attack2(target);
                 }
                 break;
+            case "3":
+                let i : number = 0
+                this.choose = false
+                while(!this.choose){
+                    let p =  prompt("Choose a target \n1. " + this.targetsList[0][i].name + "\n2. " + this.targetsList[0][i+1].name + "\n3. " + this.targetsList[0][i+2].name + "\n");
+                    
+                    if (p === "1" || p === "2" || p === "3") {
+                        i = parseInt(p) - 1;
+                        if (this.targetsList[0][i].alive && this.targetsList[0][i].currentMana>=10) {
+                            character.attack2(this.targetsList[0][i])
+                            console.log(this.targetsList[0][i].name + " has " + this.targetsList[0][i].currentMana + " mana left");
+                            if (this.targetsList[0][i].currentHealth + character.currentHealth*0.25 > this.targetsList[0][i].maxHealth) {
+                                this.targetsList[0][i].currentHealth = this.targetsList[0][i].maxHealth;
+                            }
+                            console.log( character.name + " uses heal on " + this.targetsList[0][i].name + " for " + character.currentHealth*0.25 + " health now has " + this.targetsList[0][i].currentHealth + " health left");
+                            this.choose = true;
+                        }else if (this.targetsList[0][i].alive && this.targetsList[0][i].currentMana < 10) {
+                            console.log("You don't have enough mana")
+                            console.log("you use a normal attack");
+                            character.attack(target);
+                            this.choose = true;
+                        }else{
+                            console.log("The character is dead")
+                        }
+                    }else{
+                        console.log("Invalid choice")
+                    }
+                }
+                break;
             default:
-                console.log("Invalid choice");
+                console.log("Invalid choices");
         }
     }
     useItem(character : Character, item : Inventory) : void {
@@ -76,6 +120,7 @@ export class Menu {
             }
         }
     chooseAction(character : Character, item : Inventory): void {
+        console.log("\n");
         let actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
         while (actionChoice !== "1" && actionChoice !== "2") {
             actionChoice = prompt("Choose an action:  \n1. Attack \n2. Use an item\n");
