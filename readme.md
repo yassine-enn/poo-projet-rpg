@@ -33,7 +33,7 @@ deno run gameManager.ts
 ### Course of the game
 You will be asked to pick your team, once you've done that, at the begining each turn you'll be prompted to choose an action (use item or choose attack). The game ends if all of your characters die (bad ending) or once you beat the boss and his goons (good ending).
 ## Class diagram
-<img src="https://zupimages.net/up/22/20/m408.png"
+<img src="https://www.zupimages.net/up/22/20/7z6f.png"
      alt="Class diagram"
      style="float: left; margin-right: 10px;" />  
 
