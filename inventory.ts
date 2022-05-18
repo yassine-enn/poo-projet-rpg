@@ -1,8 +1,8 @@
 export class Inventory{
-    numberOfPotions : number = 0;
-    numberOfStarFragments : number = 0;
-    numberOfHalfStars : number = 0;
-    numberOfEther : number = 0;
+    public numberOfPotions : number = 0;
+    public numberOfStarFragments : number = 0;
+    public numberOfHalfStars : number = 0;
+    public numberOfEther : number = 0;
     constructor(numberOfPotions : number, numberOfStarFragments : number, numberOfHalfStars : number, numberOfEther : number){
         this.numberOfPotions = numberOfPotions;
         this.numberOfStarFragments = numberOfStarFragments;

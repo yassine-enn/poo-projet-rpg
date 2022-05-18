@@ -7,7 +7,7 @@ export class Fight {
   public revivable: Character[];
   public speedOrder: Character[] = [];
   public turn: number;
-  public fightStatus: string ;
+  private fightStatus: string ;
   public allies: Character[] = [];
   public enemies: Character[] = [];
   private initialisation: boolean = true;
@@ -91,25 +91,27 @@ export class Fight {
               break;
             } else {
                 menu.chooseAction(this.speedOrder[i], inventory);
-                for (let i=0; i<this.speedOrder.length; i++){
-                    this.speedOrder[i].die();
-                    this.fightStatusCheck();
-                    if (this.fightStatus === "over") {
-                      break;
-                    }
-                }
+                // for (let i=0; i<this.speedOrder.length; i++){
+                //     this.speedOrder[i].die();
+                //     this.fightStatusCheck();
+                //     if (this.fightStatus === "over") {
+                //       break;
+                //     }
+                // }
+                this.deathCheck();
             }
           } else if (
             !this.speedOrder[i].isPlayable &&
             this.speedOrder[i].currentHealth > 0
           ) {
-            for (let i=0; i<this.speedOrder.length; i++){
-                this.speedOrder[i].die();
-                this.fightStatusCheck();
-                if (this.fightStatus === "over") {
-                  break;
-                }
-            }
+            // for (let i=0; i<this.speedOrder.length; i++){
+            //     this.speedOrder[i].die();
+            //     this.fightStatusCheck();
+            //     if (this.fightStatus === "over") {
+            //       break;
+            //     }
+            // }
+            this.deathCheck();
             console.log(this.speedOrder[i].name + " is playing");
             this.speedOrder[i].die();
             this.fightStatusCheck();
@@ -129,13 +131,14 @@ export class Fight {
               } else {
                 if (this.speedOrder[i].name === "cristiano" && rand < 5) {
                     this.speedOrder[i].attackAOE(this.allies);
-                    for (let i=0; i<this.speedOrder.length; i++){
-                        this.speedOrder[i].die();
-                        this.fightStatusCheck();
-                        if (this.fightStatus === "over") {
-                          break;
-                        }
-                    }
+                    // for (let i=0; i<this.speedOrder.length; i++){
+                    //     this.speedOrder[i].die();
+                    //     this.fightStatusCheck();
+                    //     if (this.fightStatus === "over") {
+                    //       break;
+                    //     }
+                    // }
+                    this.deathCheck();
                 } else {
                     for (let i=0; i<this.speedOrder.length; i++){
                       this.speedOrder[i].die();
@@ -158,6 +161,19 @@ export class Fight {
       }
     }
   }
+
+  public deathCheck(): void {
+    for (let i = 0; i < this.speedOrder.length; i++) {
+      for (let i=0; i<this.speedOrder.length; i++){
+        this.speedOrder[i].die();
+        this.fightStatusCheck();
+        if (this.fightStatus === "over") {
+          break;
+        }
+    }
+  }
+}
+      
   public fightStatusCheck(): void {
     for (let i = 0; i < this.allies.length; i++) {
       if (this.allies[i].alive === false) {
