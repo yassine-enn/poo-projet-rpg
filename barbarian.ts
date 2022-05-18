@@ -6,6 +6,8 @@ export class Barbarian extends Character {
     berzerk(target : Character) : void {
          target.currentHealth -= (this.physicalAttack-target.physicalDefense)*1.3;
          this.currentHealth -= this.maxHealth*0.8;
+         console.log(this.name + " uses berzerk on " + target.name + " for " +(this.physicalAttack-target.physicalDefense)*1.3  + " damage");
+         console.log(this.name, " has " + this.currentHealth + " health left");
      }
      attack2(target : Character) : void {
         return this.berzerk(target); 
