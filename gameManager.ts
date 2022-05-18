@@ -10,10 +10,12 @@ import {Fight} from './fight.ts';
 import {Monster} from './monster.ts';
 import {Inventory} from './inventory.ts';
 import {ChestRoom} from './chestRoom.ts';
+import {CristianoPenaldo} from './cristiano.ts';
 
 export class GameManager {
     roomNumber : number = 5;
     team : Character[] = [];
+    inventory = new Inventory(2,3,4,5);
         chooseTeam() : void {
             while (this.team.length !==3) {    
             let choice = prompt("Choose your team \n1. Priestess\n2. Warrior\n3. Mage\n4. thief\n5. barbian\n6. paladin\n")
@@ -31,7 +33,7 @@ export class GameManager {
                     console.log("You have chosen Mage");
                     break;
                 case "4":
-                    this.team.push(new Thief("thief", 60, 10, 50, 100, 100));
+                    this.team.push(new Thief("thief", 60, 10, 50, 100, 100,this.inventory));
                     console.log("You have chosen Thief");
                     break;
                 case "5":
@@ -48,15 +50,15 @@ export class GameManager {
         }
         }
         startgame()  :  void {
-            let monster1 = new Monster("monster1", 60, 30, 30, 100, 100);
-            let monster2 = new Monster("monster2", 60, 30, 31, 100, 100);
-            let monster3 = new Monster("monster3", 60, 30, 32, 100, 100);
-            let monster4 = new Monster("monster4", 60, 30, 30, 100, 100);
-            let monster5 = new Monster("monster5", 60, 30, 31, 100, 100);
-            let monster6 = new Monster("monster6", 60, 30, 32, 100, 100);
-            let monster7 = new Monster("monster7", 60, 30, 32, 100, 100);
-            let monster8 = new Monster("monster8", 60, 30, 32, 100, 100);
-            let monster9 = new Monster("monster9", 60, 30, 32, 100, 100);
+            let monster1 = new Monster("goblinMax", 60, 30, 30, 100, 100);
+            let monster2 = new Monster("goblinAlex", 60, 30, 31, 100, 100);
+            let monster3 = new Monster("goblinPaul", 60, 30, 32, 100, 100);
+            let monster4 = new Monster("orcPierre", 70, 30, 30, 150, 150);
+            let monster5 = new Monster("orcJulien", 70, 30, 31, 150, 150);
+            let monster6 = new Monster("orcSeb", 70, 30, 32, 150, 150);
+            let cristiano = new CristianoPenaldo("cristiano", 80, 45, 40, 200, 200);
+            let monster8 = new Monster("PenaldoFanboy1", 60, 30, 32, 100, 100);
+            let monster9 = new Monster("PenaldoFanboy2", 60, 30, 32, 100, 100);
 
             this.chooseTeam();
             let teamChosen = this.team;
@@ -69,22 +71,21 @@ export class GameManager {
 
 
             let menu = new Menu(fight1.teams);
-            let inventory = new Inventory(2,3,4,5);
-            inventory.displayInventory();
-            fight1.startTurn( menu, inventory);
+            this.inventory.displayInventory();
+            fight1.startTurn( menu, this.inventory);
             for (let i = 0; i < fight1.allies.length; i++) {
                 console.log(fight1.allies[i].name);
             }
-            let chestRoom = new ChestRoom(fight1.allies, inventory);
+            let chestRoom = new ChestRoom(fight1.allies, this.inventory);
             chestRoom.openchest();
             let fight2 = new Fight([fight1.allies, [monster4, monster5, monster6]],[],[], 0, null, fight1.allies, [monster4, monster5, monster6]);
             let menu2 = new Menu(fight2.teams);
-            fight2.startTurn(menu2, inventory);
-            let chestRoom2 = new ChestRoom(fight2.allies, inventory);
+            fight2.startTurn(menu2, this.inventory);
+            let chestRoom2 = new ChestRoom(fight2.allies, this.inventory);
             chestRoom2.openchest();
-            let fight3 = new Fight([fight2.allies, [monster7, monster8, monster9]],[],[], 0, null, fight2.allies, [monster7,monster8,monster9]);
+            let fight3 = new Fight([fight2.allies, [cristiano, monster8, monster9]],[],[], 0, null, fight2.allies, [cristiano,monster8,monster9]);
             let menu3 = new Menu(fight3.teams)
-            fight3.startTurn(menu3, inventory);
+            fight3.startTurn(menu3, this.inventory);
 
     }
 }

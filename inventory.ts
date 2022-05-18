@@ -10,7 +10,7 @@ export class Inventory{
         this.numberOfEther = numberOfEther;
 }
 displayInventory() : void {
-    for(var i = 0; i < 50; i++) {
+    for(var i = 0; i < 20; i++) {
         console.log("\n")
     }
     console.log("==============================\n          INVENTAIRE\n==============================")

@@ -11,7 +11,7 @@ export class CristianoPenaldo extends Character{
             console.log("cristiano" + " uses siuuuu on " + targets[i].name + " for " +(this.physicalAttack-targets[i].physicalDefense)*0.6  + " damage");
             console.log(targets[i].name + " has " + targets[i].currentHealth + " health left");     }
     }
-    attack2(target : Character) : void {
-        return this.attack(target); 
+    attackAOE(target : Character[]) : void {
+        return this.siuuu(target); 
      }
 }
