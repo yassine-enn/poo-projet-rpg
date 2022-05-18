@@ -50,15 +50,15 @@ export class GameManager {
         }
         }
         startgame()  :  void {
-            let monster1 = new Monster("goblinMax", 60, 20, 30, 100, 10);
-            let monster2 = new Monster("goblinAlex", 60, 20, 31, 100, 10);
-            let monster3 = new Monster("goblinPaul", 60, 20, 32, 100, 10);
-            let monster4 = new Monster("orcPierre", 70, 25, 30, 150, 15);
-            let monster5 = new Monster("orcJulien", 70, 25, 31, 150, 15);
-            let monster6 = new Monster("orcSeb", 70, 25, 32, 150, 15);
-            let cristiano = new CristianoPenaldo("cristiano", 80, 45, 40, 200, 12);
-            let monster8 = new Monster("PenaldoFanboy1", 60, 30, 32, 100, 10);
-            let monster9 = new Monster("PenaldoFanboy2", 60, 30, 32, 100, 10);
+            let monster1 = new Monster("goblinMax", 60, 20, 30, 100, 50);
+            let monster2 = new Monster("goblinAlex", 60, 20, 31, 100, 50);
+            let monster3 = new Monster("goblinPaul", 60, 20, 32, 100, 50);
+            let monster4 = new Monster("orcPierre", 70, 25, 30, 150, 75);
+            let monster5 = new Monster("orcJulien", 70, 25, 31, 150, 75);
+            let monster6 = new Monster("orcSeb", 70, 25, 32, 150, 75);
+            let cristiano = new CristianoPenaldo("cristiano", 80, 45, 40, 200, 100);
+            let monster8 = new Monster("PenaldoFanboy1", 60, 30, 32, 100, 50);
+            let monster9 = new Monster("PenaldoFanboy2", 60, 30, 32, 100, 50);
 
             this.chooseTeam();
             let teamChosen = this.team;
