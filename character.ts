@@ -1,4 +1,4 @@
-export class Character {
+export abstract class Character {
     isPlayable : boolean = true;
     alive : boolean = true;
     name : string = "";
