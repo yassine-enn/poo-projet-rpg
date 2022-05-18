@@ -13,8 +13,8 @@ export class ChestRoom {
     openchest() {
         if (Math.floor(Math.random() * 2) === 0) {
             prompt('HOOO no the chest is trapped')
-            prompt(`player ${this.chooseCharacter.name} took damage`, "and has" + this.chooseCharacter.currentHealth + "health left")
             this.chooseCharacter.currentHealth -= this.chooseCharacter.currentHealth * 0.1
+            prompt(`player ${this.chooseCharacter.name} took damage`, "and has" + this.chooseCharacter.currentHealth + "health left")
         }else {
             switch (Math.floor(Math.random() * 4)) {
                 case 0:

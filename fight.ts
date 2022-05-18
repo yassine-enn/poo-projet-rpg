@@ -173,11 +173,3 @@ export class Fight {
 }
 }
 }
-
-                  // for (let i=0; i<this.speedOrder.length; i++){
-                  //     this.speedOrder[i].die();
-                  //     this.fightStatusCheck();
-                  //     if (this.fightStatus === "over") {
-                  //       break;
-                  //     }
-                  // }
