@@ -12,8 +12,8 @@ export class ChestRoom {
     }
     openchest() {
         if (Math.floor(Math.random() * 2) === 0) {
-            console.log('HOOO no the chest is trapped')
-            console.log(`player ${this.chooseCharacter.name} took damage`)
+            prompt('HOOO no the chest is trapped')
+            prompt(`player ${this.chooseCharacter.name} took damage`)
             this.chooseCharacter.currentHealth -= this.chooseCharacter.currentHealth * 0.1
         }else {
             switch (Math.floor(Math.random() * 4)) {
@@ -52,7 +52,7 @@ export class ChestRoom {
                     this.inventory.numberOfHalfStars ++
                     break;
             }
-            console.log(`You found ${this.item1} and ${this.item2}`)
+            prompt(`You found ${this.item1} and ${this.item2}`)
         }
     }
 }
